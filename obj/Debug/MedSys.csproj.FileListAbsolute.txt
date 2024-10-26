@@ -1,0 +1,10 @@
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\bin\Debug\MedSys.exe.config
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\bin\Debug\MedSys.exe
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\bin\Debug\MedSys.pdb
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.AssemblyReference.cache
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.Properties.Resources.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.GenerateResource.cache
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.CoreCompileInputs.cache
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.exe
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.pdb
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.Form1.resources
