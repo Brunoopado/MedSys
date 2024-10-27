@@ -83,5 +83,19 @@ namespace MedSys.controller
                 return null;
             }
         }
+
+        public Boolean ValidarUsuarioSenha(string NomeUsuario, string SenhaUsuario)
+        {
+            string queryUsuarioSenha = "SELECT * FROM usuario WHERE nome_usuario = @nome_usuario AND senha_usuario = @senha_usuario";
+
+            database.LimparParametros();
+            database.AdicionarParametros("@nome_usuario", NomeUsuario);
+            database.AdicionarParametros("@senha_usuario", SenhaUsuario);
+
+            DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryUsuarioSenha);
+
+            //Verifica se teve um retorno, utilizando operador ternário
+            return dataTable.Rows.Count > 0 ? true : false;
+        }
     }
 }

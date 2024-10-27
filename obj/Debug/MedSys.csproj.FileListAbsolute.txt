@@ -7,4 +7,4 @@ C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.Gener
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.CoreCompileInputs.cache
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.exe
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.pdb
-C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.Form1.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.LoginView.resources

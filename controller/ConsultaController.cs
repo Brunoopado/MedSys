@@ -73,12 +73,9 @@ namespace MedSys.controller
                 {
                     IdConsulta = Convert.ToInt32(dataTable.Rows[0]["id_consulta"]),
                     DataConsulta = Convert.ToDateTime(dataTable.Rows[0]["data_consulta"]),
-                    IdPaciente = Convert.ToInt32(dataTable.Rows[0]["id_paciente"]),
-                    IdMedico = Convert.ToInt32(dataTable.Rows[0]["id_medico"]),
                     DescricaoConsulta = Convert.ToString(dataTable.Rows[0]["descricao_consulta"]),
                     DataCriacao = Convert.ToDateTime(dataTable.Rows[0]["dt_criacao"]),
                     DataAlteracao = dataTable.Rows[0]["dt_alteracao"] as DateTime?,
-                    IdUsuario = Convert.ToInt32(dataTable.Rows[0]["id_usuario"])
                 };
 
                 return consulta;

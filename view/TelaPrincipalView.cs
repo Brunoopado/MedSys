@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MedSys
+namespace MedSys.view
 {
-    public partial class Form1 : Form
+    public partial class TelaPrincipalView : Form
     {
-        public Form1()
+        public TelaPrincipalView()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
