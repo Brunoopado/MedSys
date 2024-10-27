@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedSys.controller;
 
@@ -21,8 +23,11 @@ namespace MedSys.view
 
             if(usuarioController.ValidarUsuarioSenha(nomeUsuario, senhaUsuario))
             {
+                
                 Form form = new TelaPrincipalView();
                 form.Show();
+
+                this.Hide();
             }
         }
     }
