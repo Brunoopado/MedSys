@@ -2,6 +2,8 @@
 using System;
 using MedSys.model;
 using MedSys.service;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MedSys.controller
 {
@@ -20,7 +22,7 @@ namespace MedSys.controller
             database.AdicionarParametros("@email_usuario",  usuario.Email);
             database.AdicionarParametros("@nome_usuario",   usuario.Nome);
             database.AdicionarParametros("@nivel_acesso",   usuario.NivelAcesso);
-            database.AdicionarParametros("@senha_usuario",  usuario.Senha);
+            database.AdicionarParametros("@senha_usuario",  gerarHash(usuario.Senha));
 
             database.ExecutarManipulacao(CommandType.Text, queryInserir);
 
@@ -39,7 +41,7 @@ namespace MedSys.controller
             database.AdicionarParametros("@email_usuario",  usuario.Email);
             database.AdicionarParametros("@nome_usuario",   usuario.Nome);
             database.AdicionarParametros("@nivel_acesso",   usuario.NivelAcesso);
-            database.AdicionarParametros("@senha_usuario",  usuario.Senha);
+            database.AdicionarParametros("@senha_usuario",  gerarHash(usuario.Senha));
 
             return database.ExecutarManipulacao(CommandType.Text, quetyAlterar);
         }
@@ -90,12 +92,36 @@ namespace MedSys.controller
 
             database.LimparParametros();
             database.AdicionarParametros("@nome_usuario", NomeUsuario);
-            database.AdicionarParametros("@senha_usuario", SenhaUsuario);
+            database.AdicionarParametros("@senha_usuario", gerarHash(SenhaUsuario));
 
             DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryUsuarioSenha);
 
             //Verifica se teve um retorno, utilizando operador ternário
             return dataTable.Rows.Count > 0 ? true : false;
+        }
+
+        private string gerarHash(string senhaUsuario)
+        {
+            // Cria um objeto SHA256
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                // Converte a string para um array de bytes
+                byte[] bytes = Encoding.UTF8.GetBytes(senhaUsuario);
+
+                // Computa o hash dos bytes
+                byte[] hashBytes = sha256.ComputeHash(bytes);
+
+                // Converte o array de bytes em uma string hexadecimal
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    builder.Append(hashBytes[i].ToString("x2"));
+
+                }
+                Console.WriteLine(builder.ToString());
+                return builder.ToString();
+
+            }
         }
     }
 }

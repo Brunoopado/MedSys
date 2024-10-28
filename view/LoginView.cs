@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedSys.controller;
 
@@ -17,7 +15,7 @@ namespace MedSys.view
         {
             VerificaUsuario(txtUsuario.Text, txtSenha.Text);
         }
-        private void VerificaUsuario(string nomeUsuario, string senhaUsuario)
+        public void VerificaUsuario(string nomeUsuario, string senhaUsuario)
         {
             UserController usuarioController = new UserController();
 
