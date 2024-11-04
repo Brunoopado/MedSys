@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using MedSys.model;
 using MedSys.service;
 
@@ -17,12 +20,12 @@ namespace MedSys.controller
 
             database.LimparParametros();
 
-            database.AdicionarParametros("@IdPaciente",         paciente.IdPaciente);
-            database.AdicionarParametros("@Nome",               paciente.Nome);
-            database.AdicionarParametros("@TipoSanguineo",      paciente.TipoSanguineo);
-            database.AdicionarParametros("@DataNascimento",     paciente.DataNascimento);
-            database.AdicionarParametros("@Telefone",           paciente.Telefone);
-            database.AdicionarParametros("@CPF",                paciente.CPF);
+            database.AdicionarParametros("@IdPaciente", paciente.IdPaciente);
+            database.AdicionarParametros("@Nome", paciente.Nome);
+            database.AdicionarParametros("@TipoSanguineo", paciente.TipoSanguineo);
+            database.AdicionarParametros("@DataNascimento", paciente.DataNascimento);
+            database.AdicionarParametros("@Telefone", paciente.Telefone);
+            database.AdicionarParametros("@CPF", paciente.CPF);
 
             database.ExecutarManipulacao(CommandType.Text, queryInserir);
 
@@ -37,12 +40,12 @@ namespace MedSys.controller
 
             database.LimparParametros();
 
-            database.AdicionarParametros("@IdPaciente",        paciente.IdPaciente);
-            database.AdicionarParametros("@TipoSanguineo",     paciente.TipoSanguineo);
-            database.AdicionarParametros("@Nome",              paciente.Nome);
-            database.AdicionarParametros("@DataNascimento",    paciente.DataNascimento);
-            database.AdicionarParametros("@Telefone",          paciente.Telefone);
-            database.AdicionarParametros("CPF",                paciente.CPF);
+            database.AdicionarParametros("@IdPaciente", paciente.IdPaciente);
+            database.AdicionarParametros("@TipoSanguineo", paciente.TipoSanguineo);
+            database.AdicionarParametros("@Nome", paciente.Nome);
+            database.AdicionarParametros("@DataNascimento", paciente.DataNascimento);
+            database.AdicionarParametros("@Telefone", paciente.Telefone);
+            database.AdicionarParametros("CPF", paciente.CPF);
 
             return database.ExecutarManipulacao(CommandType.Text, quetyAlterar);
         }
@@ -86,6 +89,34 @@ namespace MedSys.controller
             {
                 return null;
             }
+        }
+
+        public List<string> RetornarNomes()
+        {
+            UserController usuController = new UserController();
+
+            string queryConsulta = "SELECT nome FROM Paciente";
+
+            
+            database.LimparParametros();
+
+            // Executar a consulta e armazenar o resultado em um DataTable
+            DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryConsulta);
+
+            // Criar uma lista de strings para armazenar os nomes dos pacientes
+            List<string> nomePacientes = new List<string>();
+
+            // Verificar se há resultados
+            if (dataTable.Rows.Count > 0)
+            {
+                // Preencher a lista com os nomes dos pacientes
+                nomePacientes = dataTable.AsEnumerable()
+                                          .Select(row => row["nome"].ToString())
+                                          .ToList();
+            }
+
+            // Retornar a lista de nomes ou uma lista vazia se não houver resultados
+            return nomePacientes;
         }
     }
 }

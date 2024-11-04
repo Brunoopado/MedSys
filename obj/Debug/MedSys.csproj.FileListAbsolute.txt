@@ -8,3 +8,11 @@ C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.csproj.CoreC
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.exe
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.pdb
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.LoginView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.BuscarView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.RecepcionistaPrincipalView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\bin\Debug\aa-DJ\MedSys.resources.dll
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.CadastroConsultaView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.CadastroConsultaView.aa-DJ.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\aa-DJ\MedSys.resources.dll
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminFiltrosViews.FilterUsuarioView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminPrincipalView.resources

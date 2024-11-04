@@ -59,9 +59,10 @@ namespace MedSys.controller
         public Usuario ConsultarPorId(int IdUsuario)
         {
             string queryConsulta = "SELECT * FROM usuario " +
-                                   "WHERE id_cliente = @id_usuario";
+                                   "WHERE ";
 
             database.LimparParametros();
+
             database.AdicionarParametros("@id_cliente", IdUsuario);
 
             DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryConsulta);

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedSys.view;
 
@@ -17,7 +14,7 @@ namespace MedSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginView());
+            Application.Run(new AdminPrincipalView());
         }
     }
 }

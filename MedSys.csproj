@@ -64,11 +64,41 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="service\DataBaseSqlServerService.cs" />
+    <Compile Include="view\AdminFiltrosViews\FilterUsuarioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AdminFiltrosViews\FilterUsuarioView.Designer.cs">
+      <DependentUpon>FilterUsuarioView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\BuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\BuscarView.Designer.cs">
+      <DependentUpon>BuscarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\CadastroConsultaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CadastroConsultaView.Designer.cs">
+      <DependentUpon>CadastroConsultaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\AdminPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AdminPrincipalView.Designer.cs">
+      <DependentUpon>AdminPrincipalView.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\RecepcionistaPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\RecepcionistaPrincipalView.Designer.cs">
+      <DependentUpon>RecepcionistaPrincipalView.cs</DependentUpon>
     </Compile>
     <Compile Include="view\TelaPrincipalView.cs">
       <SubType>Form</SubType>
@@ -85,8 +115,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\AdminFiltrosViews\FilterUsuarioView.resx">
+      <DependentUpon>FilterUsuarioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AdminPrincipalView.resx">
+      <DependentUpon>AdminPrincipalView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\BuscarView.resx">
+      <DependentUpon>BuscarView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CadastroConsultaView.aa-DJ.resx">
+      <DependentUpon>CadastroConsultaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CadastroConsultaView.resx">
+      <DependentUpon>CadastroConsultaView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\RecepcionistaPrincipalView.resx">
+      <DependentUpon>RecepcionistaPrincipalView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
