@@ -33,6 +33,8 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.pnlFiltro = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -65,6 +67,7 @@
             this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // btnLimpar
             // 
@@ -84,12 +87,29 @@
             this.btnVoltar.Text = "Voltar a tela principal";
             this.btnVoltar.UseVisualStyleBackColor = true;
             // 
+            // pnlFiltro
+            // 
+            this.pnlFiltro.Location = new System.Drawing.Point(12, 52);
+            this.pnlFiltro.Name = "pnlFiltro";
+            this.pnlFiltro.Size = new System.Drawing.Size(182, 325);
+            this.pnlFiltro.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(233, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 52);
+            this.panel1.Location = new System.Drawing.Point(306, 121);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(182, 325);
-            this.panel1.TabIndex = 7;
+            this.panel1.Size = new System.Drawing.Size(355, 245);
+            this.panel1.TabIndex = 9;
             // 
             // BuscarView
             // 
@@ -97,6 +117,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pnlFiltro);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnFiltrar);
@@ -116,6 +138,8 @@
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Panel pnlFiltro;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
     }
 }

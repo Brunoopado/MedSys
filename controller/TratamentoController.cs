@@ -20,7 +20,7 @@ namespace MedSys.controller
             database.AdicionarParametros("@id_consulta",            tratamento.Consulta.IdConsulta);
             database.AdicionarParametros("@dt_inicio",              consulta.Medico.IdMedico);
             database.AdicionarParametros("@dt_fim",                 consulta.DescricaoConsulta);
-            database.AdicionarParametros("@descricao_tratamento",   consulta.DataCriacao);
+            //database.AdicionarParametros("@descricao_tratamento",   consulta.DataCriacao);
 
             database.ExecutarManipulacao(CommandType.Text, queryInserir);
 
@@ -36,7 +36,7 @@ namespace MedSys.controller
                                "WHERE id_consulta = @id_consulta";
 
             database.LimparParametros();
-            database.AdicionarParametros("@data_consulta", consulta.DataConsulta);
+           // database.AdicionarParametros("@data_consulta", consulta.DataConsulta);
             database.AdicionarParametros("@id_paciente", consulta.Paciente.IdPaciente);
             database.AdicionarParametros("@id_medico", consulta.Medico.IdMedico);
             database.AdicionarParametros("@descricao_consulta", consulta.DescricaoConsulta);
@@ -71,10 +71,9 @@ namespace MedSys.controller
                 Consulta consulta = new Consulta
                 {
                     IdConsulta = Convert.ToInt32(dataTable.Rows[0]["id_consulta"]),
-                    DataConsulta = Convert.ToDateTime(dataTable.Rows[0]["data_consulta"]),
                     DescricaoConsulta = Convert.ToString(dataTable.Rows[0]["descricao_consulta"]),
-                    DataCriacao = Convert.ToDateTime(dataTable.Rows[0]["dt_criacao"]),
-                    DataAlteracao = dataTable.Rows[0]["dt_alteracao"] as DateTime?,
+                    InicioConsulta = Convert.ToDateTime(dataTable.Rows[0]["inicio_consulta"]),
+                    FimConsulta = Convert.ToDateTime(dataTable.Rows[0]["fim_consulta"]),
                 };
 
                 return consulta;

@@ -8,19 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MedSys.view.AdminFiltrosViews
+namespace MedSys.view
 {
-    public partial class FilterUsuarioView : Form
+    public partial class FrmTeste : Form
     {
-        public string nome = "";
-        public FilterUsuarioView()
+        
+        public FrmTeste(string nome)
         {
             InitializeComponent();
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            nome = textBox4.Text;
+            textBox1.Text = nome;
         }
     }
 }

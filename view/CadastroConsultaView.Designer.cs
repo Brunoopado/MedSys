@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroConsultaView));
             this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.cbbPaciente = new System.Windows.Forms.ComboBox();
             this.cbbMedico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,18 +41,13 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtDescricao
             // 
             resources.ApplyResources(this.txtDescricao, "txtDescricao");
             this.txtDescricao.Name = "txtDescricao";
-            // 
-            // cbbPaciente
-            // 
-            this.cbbPaciente.FormattingEnabled = true;
-            resources.ApplyResources(this.cbbPaciente, "cbbPaciente");
-            this.cbbPaciente.Name = "cbbPaciente";
             // 
             // cbbMedico
             // 
@@ -104,6 +98,7 @@
             resources.ApplyResources(this.btnAlterar, "btnAlterar");
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // dtpInicio
             // 
@@ -115,10 +110,16 @@
             resources.ApplyResources(this.dtpFim, "dtpFim");
             this.dtpFim.Name = "dtpFim";
             // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
             // CadastroConsultaView
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dtpFim);
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.btnAlterar);
@@ -130,7 +131,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbMedico);
-            this.Controls.Add(this.cbbPaciente);
             this.Controls.Add(this.txtDescricao);
             this.Name = "CadastroConsultaView";
             this.ResumeLayout(false);
@@ -140,7 +140,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.ComboBox cbbPaciente;
         private System.Windows.Forms.ComboBox cbbMedico;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -152,5 +151,6 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.DateTimePicker dtpFim;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

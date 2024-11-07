@@ -14,7 +14,7 @@ namespace MedSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPrincipalView());
+            Application.Run(new BuscarView());
         }
     }
 }

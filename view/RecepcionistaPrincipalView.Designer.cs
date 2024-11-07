@@ -38,8 +38,6 @@
             this.btnAvancar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.vizualizarCadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.médicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtUserLogado = new System.Windows.Forms.ToolStripTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -125,24 +123,9 @@
             // 
             // vizualizarCadastrosToolStripMenuItem
             // 
-            this.vizualizarCadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pacientesToolStripMenuItem,
-            this.médicosToolStripMenuItem});
             this.vizualizarCadastrosToolStripMenuItem.Name = "vizualizarCadastrosToolStripMenuItem";
-            this.vizualizarCadastrosToolStripMenuItem.Size = new System.Drawing.Size(123, 23);
-            this.vizualizarCadastrosToolStripMenuItem.Text = "Vizualizar Cadastros";
-            // 
-            // pacientesToolStripMenuItem
-            // 
-            this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
-            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.pacientesToolStripMenuItem.Text = "Pacientes";
-            // 
-            // médicosToolStripMenuItem
-            // 
-            this.médicosToolStripMenuItem.Name = "médicosToolStripMenuItem";
-            this.médicosToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.médicosToolStripMenuItem.Text = "Médicos";
+            this.vizualizarCadastrosToolStripMenuItem.Size = new System.Drawing.Size(109, 23);
+            this.vizualizarCadastrosToolStripMenuItem.Text = "Buscar Cadastros";
             // 
             // txtUserLogado
             // 
@@ -209,7 +192,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(420, 47);
+            this.label3.Location = new System.Drawing.Point(434, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 19;
@@ -266,8 +249,6 @@
         private System.Windows.Forms.Button btnAvancar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem vizualizarCadastrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem médicosToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

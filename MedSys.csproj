@@ -88,6 +88,12 @@
     <Compile Include="view\AdminPrincipalView.Designer.cs">
       <DependentUpon>AdminPrincipalView.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FrmTeste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmTeste.Designer.cs">
+      <DependentUpon>FrmTeste.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\CadastroConsultaView.resx">
       <DependentUpon>CadastroConsultaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmTeste.resx">
+      <DependentUpon>FrmTeste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>

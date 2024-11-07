@@ -19,15 +19,29 @@ namespace MedSys.view
             InitializeComponent();
         }
 
+        ConsultaController consulta = new ConsultaController();
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            ConsultaController consulta = new ConsultaController();
             Consulta cadConsulta = new Consulta();
             Medico cadMedico= new Medico();
             Paciente cadPaciente = new Paciente();
-            consulta.Inserir( cadConsulta, cadPaciente,  cadMedico);
+
+            cadConsulta.InicioConsulta = dtpInicio.Value;
+            cadConsulta.FimConsulta = dtpFim.Value;
+            cadConsulta.DescricaoConsulta = txtDescricao.Text;
+            cadConsulta.Medico = cadMedico;
+            cadConsulta.Paciente = cadPaciente;
+
+            consulta.Inserir( cadConsulta);
 
             
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

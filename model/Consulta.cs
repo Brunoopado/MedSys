@@ -5,10 +5,10 @@ namespace MedSys.model
     public class Consulta
     {
         public int IdConsulta { get; set; }
-        public DateTime DataConsulta { get; set; }
+        public DateTime InicioConsulta { get; set; }
+        public DateTime FimConsulta { get; set; }
+
         public string DescricaoConsulta { get; set; }
-        public DateTime DataCriacao { get; set; } = DateTime.Now;
-        public DateTime? DataAlteracao { get; set; }
 
         // Relação com Classes Externas
         public Paciente Paciente { get; set; }
@@ -19,7 +19,7 @@ namespace MedSys.model
         public string DataMedicoPaciente {
             get
             {
-                return DataConsulta.Hour + " - " + Medico.Nome + " - " + Paciente.Nome;
+                return InicioConsulta.Hour + " - " + Medico.Nome + " - " + Paciente.Nome;
             } 
         }
     }

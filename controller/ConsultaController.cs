@@ -9,19 +9,19 @@ namespace MedSys.controller
     {
         DataBaseSqlServerService database = new DataBaseSqlServerService();
 
-        public int Inserir(Consulta consulta, Paciente paciente, Medico medico)
+        public int Inserir(Consulta consulta)
         {
-            string queryInserir = "INSERT INTO Consulta (id_consulta, data_consulta, id_paciente, id_medico, descricao_consulta, dt_criacao, id_usuario) " +
-                              "VALUES (@id_consulta, @data_consulta, @id_paciente, @id_medico, @descricao_consulta, @dt_criacao, @id_usuario)";
+            string queryInserir = "INSERT INTO Consulta (id_consulta, inicio_consulta, id_paciente, id_medico, descricao_consulta, fim_consulta, id_usuario) " +
+                              "VALUES (@id_consulta, @inicio_consulta, @id_paciente, @id_medico, @descricao_consulta, @fim_consuta, @id_usuario)";
 
             database.LimparParametros();
-            database.AdicionarParametros("@id_consulta",         consulta.IdConsulta);
-            database.AdicionarParametros("@data_consulta",       consulta.DataConsulta);
-            database.AdicionarParametros("@id_paciente",         consulta.Paciente.IdPaciente);
-            database.AdicionarParametros("@id_medico",           consulta.Medico.IdMedico);
-            database.AdicionarParametros("@descricao_consulta",  consulta.DescricaoConsulta);
-            database.AdicionarParametros("@dt_criacao",          consulta.DataCriacao);
-            database.AdicionarParametros("@id_usuario",          consulta.Usuario.IdUsuario);
+            database.AdicionarParametros("@id_consulta",             consulta.IdConsulta);
+            database.AdicionarParametros("@inicio_consulta",         consulta.InicioConsulta);
+            database.AdicionarParametros("@id_paciente",             consulta.Paciente.IdPaciente);
+            database.AdicionarParametros("@id_medico",               consulta.Medico.IdMedico);
+            database.AdicionarParametros("@descricao_consulta",      consulta.DescricaoConsulta);
+            database.AdicionarParametros("@fim_consulta",            consulta.FimConsulta);
+            database.AdicionarParametros("@id_usuario",              consulta.Usuario.IdUsuario);
 
             database.ExecutarManipulacao(CommandType.Text, queryInserir);
 
@@ -29,19 +29,19 @@ namespace MedSys.controller
 
         }
 
-        public int Alterar(Consulta consulta, Paciente paciente, Medico medico)
+        public int Alterar(Consulta consulta)
         {
             string queryAlterar = "UPDATE Consulta " +
-                               "SET data_consulta = @data_consulta, id_paciente = @id_paciente, id_medico = @id_medico, " +
-                               "descricao_consulta = @descricao_consulta, dt_alteracao = @dt_alteracao, id_usuario = @id_usuario " +
+                               "SET inicio_consulta = @inicio_consulta, id_paciente = @id_paciente, id_medico = @id_medico, " +
+                               "descricao_consulta = @descricao_consulta, fim_consulta = @fim_consulta, id_usuario = @id_usuario " +
                                "WHERE id_consulta = @id_consulta";
 
             database.LimparParametros();
-            database.AdicionarParametros("@data_consulta",           consulta.DataConsulta);
+            database.AdicionarParametros("@inicio_consulta",         consulta.InicioConsulta);
             database.AdicionarParametros("@id_paciente",             consulta.Paciente.IdPaciente);
             database.AdicionarParametros("@id_medico",               consulta.Medico.IdMedico);
             database.AdicionarParametros("@descricao_consulta",      consulta.DescricaoConsulta);
-            database.AdicionarParametros("@dt_alteracao",            DateTime.Now);
+            database.AdicionarParametros("@fim_consulta",            consulta.FimConsulta);
             database.AdicionarParametros("@id_usuario",              consulta.Usuario.IdUsuario);
             database.AdicionarParametros("@id_consulta",             consulta.IdConsulta);
 
@@ -70,12 +70,12 @@ namespace MedSys.controller
             if (dataTable.Rows.Count > 0)
             {
                 Consulta consulta = new Consulta
-                {
+                { 
+                
                     IdConsulta = Convert.ToInt32(dataTable.Rows[0]["id_consulta"]),
-                    DataConsulta = Convert.ToDateTime(dataTable.Rows[0]["data_consulta"]),
                     DescricaoConsulta = Convert.ToString(dataTable.Rows[0]["descricao_consulta"]),
-                    DataCriacao = Convert.ToDateTime(dataTable.Rows[0]["dt_criacao"]),
-                    DataAlteracao = dataTable.Rows[0]["dt_alteracao"] as DateTime?,
+                    InicioConsulta = Convert.ToDateTime(dataTable.Rows[0]["inicio_consulta"]),
+                    FimConsulta= Convert.ToDateTime(dataTable.Rows[0]["fim_consulta"]),
                 };
 
                 return consulta;
