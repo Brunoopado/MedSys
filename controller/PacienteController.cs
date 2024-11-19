@@ -118,5 +118,44 @@ namespace MedSys.controller
             // Retornar a lista de nomes ou uma lista vazia se não houver resultados
             return nomePacientes;
         }
+
+        public PacientefCollection ConsultaPorFiltro(string nome, string tipo_sanguineo, string cpf, DateTime dt_nascimento, string telefone)
+        {
+            string queryConsulta = "SELECT * FROM Medico WHERE nome LIKE '%@Nome%' OR tipo_sanguineo LIKE '%@tipo_sanguineo%' OR cpf LIKE '%@cpf%' OR dt_nascimento = @dt_nascimento OR telefone LIKE '%@telefone%'";
+
+            database.LimparParametros();
+            database.AdicionarParametros("@Nome", nome);
+            database.AdicionarParametros("@tipo_sanguineo", tipo_sanguineo);
+            database.AdicionarParametros("@cpf", cpf);
+            database.AdicionarParametros("@dt_nascimento", dt_nascimento);
+            database.AdicionarParametros("@telefone", telefone);
+
+            DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryConsulta);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                PacienteController  pacienteController = new PacienteController();
+                PacientefCollection pacientes = new PacientefCollection();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Paciente paciente = new Paciente();
+
+                    paciente.IdPaciente = Convert.ToInt32(dataTable.Rows[0]["id_paciente"]);
+                    paciente.Nome = Convert.ToString(dataTable.Rows[0]["nome"]);
+                    paciente.TipoSanguineo = Convert.ToString(dataTable.Rows[0]["tipo_sanguineo"]);
+                    paciente.CPF = Convert.ToString(dataTable.Rows[0]["cpf"]);
+                    paciente.DataNascimento = Convert.ToDateTime(dataTable.Rows[0]["dt_nascimento"]);
+                    paciente.Telefone = Convert.ToString(dataTable.Rows[0]["telefone"]);
+
+                    pacientes.Add(paciente);
+                }
+                return pacientes;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

@@ -71,7 +71,7 @@ namespace MedSys.controller
             {
                 Usuario usuario = new Usuario();
 
-                usuario.IdUsuario= Convert.ToInt32(dataTable.Rows[0]["id_cliente"]);
+                usuario.IdUsuario= Convert.ToInt32(dataTable.Rows[0]["id_usuario"]);
                 usuario.CPF = Convert.ToChar(dataTable.Rows[0]["CPF"]);
                 usuario.Email = Convert.ToString(dataTable.Rows[0]["email_usuario"]);
                 usuario.Nome = Convert.ToString(dataTable.Rows[0]["nome_usuario"]);
@@ -87,9 +87,9 @@ namespace MedSys.controller
             }
         }
 
-        public Boolean ValidarUsuarioSenha(string NomeUsuario, string SenhaUsuario)
+        public Usuario ValidarUsuarioSenha(string NomeUsuario, string SenhaUsuario)
         {
-            string queryUsuarioSenha = "SELECT * FROM usuario WHERE nome_usuario = @nome_usuario AND senha_usuario = @senha_usuario";
+            string queryUsuarioSenha = "SELECT id_cliente FROM usuario WHERE nome_usuario = @nome_usuario AND senha_usuario = @senha_usuario";
 
             database.LimparParametros();
             database.AdicionarParametros("@nome_usuario", NomeUsuario);
@@ -98,7 +98,12 @@ namespace MedSys.controller
             DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryUsuarioSenha);
 
             //Verifica se teve um retorno, utilizando operador ternário
-            return dataTable.Rows.Count > 0 ? true : false;
+            if(dataTable.Rows.Count > 0)
+            {
+                UserController userController = new UserController();
+                return userController.ConsultarPorId(Convert.ToInt32(dataTable.Rows[0]["id_cliente"]));
+            }
+            else { return null; }
         }
 
         private string gerarHash(string senhaUsuario)
@@ -122,6 +127,44 @@ namespace MedSys.controller
                 Console.WriteLine(builder.ToString());
                 return builder.ToString();
 
+            }
+        }
+
+        public UsuarioCollection ConsultaPorFiltro(string cpf, string email_usuario, string nome_usuario, int? nivel_acesso)
+        {
+            string queryConsulta = "SELECT * FROM Usuario WHERE cpf_usuario LIKE '%@cpf_usuario%' OR email_usuario LIKE '%@email_usuario%' OR nome_usuario LIKE '%@nome_usuario%' OR nivel_acesso = @nivel_acesso";
+
+            database.LimparParametros();
+            database.AdicionarParametros("@cpf_usuario", cpf);
+            database.AdicionarParametros("@email_usuario", email_usuario);
+            database.AdicionarParametros("@nome_usuario", nome_usuario);
+            database.AdicionarParametros("@nivel_acesso", nivel_acesso);
+
+            DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryConsulta);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                UserController userController = new UserController();
+                UsuarioCollection usuarios = new UsuarioCollection();
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.IdUsuario = Convert.ToInt32(dataTable.Rows[0]["id_usuario"]);
+                    usuario.CPF = Convert.ToChar(dataTable.Rows[0]["CPF"]);
+                    usuario.Email = Convert.ToString(dataTable.Rows[0]["email_usuario"]);
+                    usuario.Nome = Convert.ToString(dataTable.Rows[0]["nome_usuario"]);
+                    usuario.NivelAcesso = Convert.ToChar(dataTable.Rows[0]["nivel_acesso"]);
+                    usuario.Senha = Convert.ToString(dataTable.Rows[0]["senha_usuario"]);
+
+                    usuarios.Add(usuario);
+                }
+                return usuarios;
+            }
+            else
+            {
+                return null;
             }
         }
     }

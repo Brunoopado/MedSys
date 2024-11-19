@@ -59,7 +59,7 @@ namespace MedSys.controller
 
         public Medico ConsultarPorId(int IdMedico)
         {
-            UserController usuController = new UserController();
+            UserController userController = new UserController();
 
             string queryConsulta = "SELECT * FROM Medico " +
                                    "WHERE id_medico = @IdMedico";
@@ -79,9 +79,48 @@ namespace MedSys.controller
                 medico.Especialidade = Convert.ToString(dataTable.Rows[0]["especialidade"]);
                 medico.DataCadastro = Convert.ToDateTime(dataTable.Rows[0]["dt_cadastro"]);
                 medico.Telefone = Convert.ToString(dataTable.Rows[0]["telefone"]);
-                medico.Usuario = usuController.ConsultarPorId(Convert.ToInt32(dataTable.Rows[0]["id_usuario"]));
+                medico.Usuario = userController.ConsultarPorId(Convert.ToInt32(dataTable.Rows[0]["id_usuario"]));
 
                 return medico;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public MedicoCollection ConsultaPorFiltro(string nome, string crm, string especialidade, string telefone)
+        {
+            string queryConsulta = "SELECT * FROM Medico WHERE nome LIKE '%@Nome%' AND crm LIKE '%@CRM%' AND especialidade LIKE '%@Especialidade%' AND telefone LIKE '@Telefone'";
+
+            database.LimparParametros();
+            database.AdicionarParametros("@Nome", nome);
+            database.AdicionarParametros("@CRM", crm);
+            database.AdicionarParametros("@Especialidade", especialidade);
+            database.AdicionarParametros("@Telefone", telefone);
+
+            DataTable dataTable = database.ExecutarConsulta(CommandType.Text, queryConsulta);
+
+            if(dataTable.Rows.Count > 0)
+            {
+                MedicoCollection medicos = new MedicoCollection();
+                UserController userController = new UserController();
+
+                foreach(DataRow row in dataTable.Rows)
+                {
+                    Medico medico = new Medico();
+
+                    medico.IdMedico = Convert.ToInt32(dataTable.Rows[0]["id_medico"]);
+                    medico.Nome = Convert.ToString(dataTable.Rows[0]["nome"]);
+                    medico.CRM = Convert.ToString(dataTable.Rows[0]["crm"]);
+                    medico.Especialidade = Convert.ToString(dataTable.Rows[0]["especialidade"]);
+                    medico.DataCadastro = Convert.ToDateTime(dataTable.Rows[0]["dt_cadastro"]);
+                    medico.Telefone = Convert.ToString(dataTable.Rows[0]["telefone"]);
+                    medico.Usuario = userController.ConsultarPorId(Convert.ToInt32(dataTable.Rows[0]["id_usuario"]));
+
+                    medicos.Add(medico);
+                }
+                return medicos;
             }
             else
             {

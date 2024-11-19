@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using MedSys.controller;
+using MedSys.model;
 
 namespace MedSys.view
 {

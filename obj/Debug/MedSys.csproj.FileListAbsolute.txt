@@ -16,4 +16,5 @@ C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.Cadastr
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\aa-DJ\MedSys.resources.dll
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminFiltrosViews.FilterUsuarioView.resources
 C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminPrincipalView.resources
-C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.FrmTeste.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminFiltrosViews.FilterMedicoView.resources
+C:\Users\Notebook-Bruno\source\repos\MedSys\MedSys\obj\Debug\MedSys.view.AdminFiltrosViews.FilterPacienteView.resources

@@ -76,6 +76,8 @@ namespace MedSys.controller
                     DescricaoConsulta = Convert.ToString(dataTable.Rows[0]["descricao_consulta"]),
                     InicioConsulta = Convert.ToDateTime(dataTable.Rows[0]["inicio_consulta"]),
                     FimConsulta= Convert.ToDateTime(dataTable.Rows[0]["fim_consulta"]),
+
+
                 };
 
                 return consulta;

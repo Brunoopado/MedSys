@@ -19,7 +19,7 @@ namespace MedSys.view
         {
             UserController usuarioController = new UserController();
 
-            if(usuarioController.ValidarUsuarioSenha(nomeUsuario, senhaUsuario))
+            if(usuarioController.ValidarUsuarioSenha(nomeUsuario, senhaUsuario) != null)
             {
                 
                 Form form = new TelaPrincipalView();

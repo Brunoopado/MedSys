@@ -2,7 +2,7 @@
 
 namespace MedSys.model
 {
-    internal class UsuarioCollection : List<Usuario>
+    public class UsuarioCollection : List<Usuario>
     {
     }
 }

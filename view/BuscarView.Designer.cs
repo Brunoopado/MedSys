@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlFiltro = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lsbResultados = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbbFilter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbbFilter.FormattingEnabled = true;
+            this.cbbFilter.Items.AddRange(new object[] {
             "Pacientes",
             "Médicos",
-            "Consultas"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 21);
-            this.comboBox1.TabIndex = 1;
+            "Usuários"});
+            this.cbbFilter.Location = new System.Drawing.Point(12, 25);
+            this.cbbFilter.Name = "cbbFilter";
+            this.cbbFilter.Size = new System.Drawing.Size(182, 21);
+            this.cbbFilter.TabIndex = 1;
+            this.cbbFilter.SelectedValueChanged += new System.EventHandler(this.cbbFilter_SelectedValueChanged);
             // 
             // label1
             // 
@@ -94,36 +94,26 @@
             this.pnlFiltro.Size = new System.Drawing.Size(182, 325);
             this.pnlFiltro.TabIndex = 7;
             // 
-            // button1
+            // lsbResultados
             // 
-            this.button1.Location = new System.Drawing.Point(233, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(306, 121);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 245);
-            this.panel1.TabIndex = 9;
+            this.lsbResultados.FormattingEnabled = true;
+            this.lsbResultados.Location = new System.Drawing.Point(200, 52);
+            this.lsbResultados.Name = "lsbResultados";
+            this.lsbResultados.Size = new System.Drawing.Size(553, 329);
+            this.lsbResultados.TabIndex = 8;
             // 
             // BuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lsbResultados);
             this.Controls.Add(this.pnlFiltro);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbbFilter);
             this.Name = "BuscarView";
             this.Text = "BuscarView";
             this.ResumeLayout(false);
@@ -133,13 +123,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Panel pnlFiltro;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox lsbResultados;
     }
 }
