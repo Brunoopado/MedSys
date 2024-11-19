@@ -6,8 +6,7 @@ namespace MedSys.model
     {
         public int IdConsulta { get; set; }
         public DateTime InicioConsulta { get; set; }
-        public DateTime FimConsulta { get; set; }
-
+        public DateTime? FimConsulta { get; set; }
         public string DescricaoConsulta { get; set; }
 
         // Relação com Classes Externas
@@ -19,8 +18,8 @@ namespace MedSys.model
         public string DataMedicoPaciente {
             get
             {
-                return InicioConsulta.Hour + " - " + Medico.Nome + " - " + Paciente.Nome;
-            } 
+                return $"{InicioConsulta:d} - {Medico.Nome} - {Paciente.Nome}";
+            }
         }
     }
 

@@ -8,6 +8,12 @@ namespace MedSys.controller
     public class TratamentoController
     {
         DataBaseSqlServerService database = new DataBaseSqlServerService();
+        Consulta consulta = new Consulta();
+
+        public DataBaseSqlServerService GetDatabase()
+        {
+            return database;
+        }
 
         public int Inserir(Tratamento tratamento, Consulta consulta, Paciente paciente, Medico medico)
         {
